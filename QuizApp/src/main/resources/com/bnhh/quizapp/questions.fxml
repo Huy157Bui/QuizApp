@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
@@ -21,15 +22,22 @@
             <ComboBox layoutX="10.0" layoutY="10.0" prefWidth="150.0" promptText="Danh mục" stylesheets="@styles.css" />
          </children>
       </HBox>
-      <VBox prefHeight="200.0" prefWidth="100.0">
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="Main">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="100.0" prefWidth="200.0" styleClass="Main">
                <children>
-                  <RadioButton mnemonicParsing="false" text="RadioButton" />
+                  <RadioButton mnemonicParsing="false" />
+                  <TextField />
+               </children>
+            </HBox>
+            <HBox layoutX="20.0" layoutY="60.0" prefHeight="100.0" prefWidth="200.0" styleClass="Main">
+               <children>
+                  <RadioButton mnemonicParsing="false" />
                   <TextField />
                </children>
             </HBox>
          </children>
       </VBox>
+      <Button mnemonicParsing="false" styleClass="Button" text="Button" />
    </children>
 </VBox>
