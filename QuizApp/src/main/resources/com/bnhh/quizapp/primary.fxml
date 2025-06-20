@@ -9,6 +9,6 @@
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Subject" text="QUIZ APP" />
       <Button mnemonicParsing="false" onAction="#handleQuestManagement" styleClass="Button" text="Đăng ký " />
-      <Button layoutX="10.0" layoutY="27.0" mnemonicParsing="false" styleClass="Button" stylesheets="@styles.css" text="Đăng nhập " />
+      <Button layoutX="10.0" layoutY="27.0" mnemonicParsing="false" onAction="#handlePractice" styleClass="Button" stylesheets="@styles.css" text="Đăng nhập " />
    </children>
 </VBox>
