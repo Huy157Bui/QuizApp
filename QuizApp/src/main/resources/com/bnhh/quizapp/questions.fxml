@@ -10,15 +10,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="458.0" styleClass="Main" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="458.0" styleClass="Main" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bnhh.quizapp.QuestionsController">
    <children>
       <AnchorPane />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Subject" text="Quản lí câu hỏi" />
       <TextArea prefHeight="68.0" prefWidth="438.0" promptText="Nội dung câu hỏi..." />
       <HBox prefHeight="59.0" prefWidth="438.0" styleClass="Main">
          <children>
-            <ComboBox prefWidth="150.0" promptText="Danh mục" stylesheets="@styles.css" />
+            <ComboBox fx:id="cbCates" prefWidth="150.0" promptText="Danh mục" stylesheets="@styles.css" />
             <ComboBox layoutX="10.0" layoutY="10.0" prefWidth="150.0" promptText="Danh mục" stylesheets="@styles.css" />
          </children>
       </HBox>
