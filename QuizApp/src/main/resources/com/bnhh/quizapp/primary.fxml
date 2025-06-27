@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
-
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="339.0" styleClass="Main" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bnhh.quizapp.PrimaryController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Subject" text="QUIZ APP" />
       <Button mnemonicParsing="false" onAction="#handleQuestManagement" styleClass="Button" text="Đăng ký " />
       <Button layoutX="10.0" layoutY="27.0" mnemonicParsing="false" onAction="#handlePractice" styleClass="Button" stylesheets="@styles.css" text="Đăng nhập " />
+      <ComboBox fx:id="cbTheme" onAction="#changeTheme" prefWidth="150.0" styleClass="Button" />
    </children>
 </VBox>
