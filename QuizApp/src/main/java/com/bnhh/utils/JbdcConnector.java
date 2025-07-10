@@ -15,10 +15,11 @@ import java.util.logging.Logger;
  * @author HP
  */
 public class JbdcConnector {
+
     private static JbdcConnector instance;
-    
+
     private static Connection conn;
-    
+
     static {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -26,22 +27,27 @@ public class JbdcConnector {
             Logger.getLogger(JbdcConnector.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    private JbdcConnector() throws SQLException{
-       // this.conn = DriverManager.getConnection("jdbc:mysql://localhost/quesdb", "root", "root");
-        this.conn = DriverManager.getConnection("jdbc:mysql://localhost/quizdb", "root", "root");
+
+    private JbdcConnector() throws SQLException {
+        // this.conn = DriverManager.getConnection("jdbc:mysql://localhost/quesdb", "root", "root");
+        this.conn = DriverManager.getConnection("jdbc:mysql://localhost/quizdb", "root", "Huy12345@");
+
+        //this.conn = DriverManager.getConnection("jdbc:mysql://localhost/quizdb", "root", "root");
     }
-    
-    public static JbdcConnector getInstance() throws SQLException{
-        if(instance==null)
+
+    public static JbdcConnector getInstance() throws SQLException {
+        if (instance == null) {
             instance = new JbdcConnector();
+        }
         return instance;
     }
-    public Connection connect(){
+
+    public Connection connect() {
         return this.conn;
     }
-    public void close() throws SQLException{
-        if(this.conn != null){
+
+    public void close() throws SQLException {
+        if (this.conn != null) {
             this.conn.close();
         }
     }

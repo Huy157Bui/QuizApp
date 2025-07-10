@@ -1,5 +1,7 @@
 package com.bnhh.quizapp;
 
+import com.bnhh.pojo.Category;
+import com.bnhh.pojo.Level;
 import com.bnhh.utils.theme.DefaultFactory;
 import com.bnhh.utils.theme.Theme;
 import static com.bnhh.utils.theme.Theme.DEFAULT;
@@ -22,6 +24,7 @@ import javafx.stage.Stage;
 
 public class PrimaryController implements Initializable {
     @FXML private ComboBox<Theme> cbTheme;
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

@@ -8,4 +8,6 @@ module com.bnhh.quizapp {
     
     opens com.bnhh.quizapp to javafx.fxml;
     exports com.bnhh.quizapp;
+    exports com.bnhh.pojo;
+
 }
