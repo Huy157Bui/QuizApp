@@ -4,7 +4,6 @@
  */
 package com.bnhh.services;
 
-import com.bnhh.pojo.Category;
 import com.bnhh.pojo.Question;
 import java.sql.Connection;
 import com.bnhh.utils.JbdcConnector;
