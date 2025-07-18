@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="Main" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Luyện tập">
+         <styleClass>
+            <String fx:value="Button" />
+            <String fx:value="Subject" />
+         </styleClass>
+      </Text>
+      <HBox prefHeight="40.0" prefWidth="580.0">
+         <children>
+            <TextField />
+            <Button mnemonicParsing="false" text="Button" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
