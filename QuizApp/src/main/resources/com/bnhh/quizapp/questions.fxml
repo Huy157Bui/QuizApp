@@ -11,38 +11,44 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="458.0" styleClass="Main" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bnhh.quizapp.QuestionsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="551.0" styleClass="Main" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bnhh.quizapp.QuestionsController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Subject" text="Quản lí câu hỏi" />
-      <TextArea fx:id="txtContent" prefHeight="68.0" prefWidth="438.0" promptText="Nội dung câu hỏi..." />
+      <TextArea fx:id="txtContent" prefHeight="1.0" prefWidth="438.0" promptText="Nội dung câu hỏi..." />
       <HBox prefHeight="59.0" prefWidth="438.0" styleClass="Main">
          <children>
             <ComboBox fx:id="cbCates" prefWidth="150.0" promptText="Danh mục" stylesheets="@styles.css" />
-            <ComboBox fx:id="cbLevels" layoutX="10.0" layoutY="10.0" prefWidth="150.0" promptText="Danh mục" stylesheets="@styles.css" />
+            <ComboBox fx:id="cbLevels" layoutX="10.0" layoutY="10.0" prefWidth="150.0" promptText="Mức độ" stylesheets="@styles.css" />
          </children>
       </HBox>
-      <VBox fx:id="vboxChoices" prefHeight="200.0" prefWidth="100.0" styleClass="Main">
+      <VBox fx:id="vboxChoices" prefHeight="79.0" prefWidth="438.0" styleClass="Main">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" styleClass="Main">
+            <HBox prefHeight="10.0" prefWidth="417.0" styleClass="Main">
                <children>
                   <RadioButton mnemonicParsing="false">
                      <toggleGroup>
                         <ToggleGroup fx:id="toggleChoice" />
                      </toggleGroup></RadioButton>
-                  <TextField />
+                  <TextField prefHeight="26.0" prefWidth="247.0" />
                </children>
             </HBox>
-            <HBox layoutX="20.0" layoutY="60.0" prefHeight="100.0" prefWidth="200.0" styleClass="Main">
+            <HBox layoutX="20.0" layoutY="60.0" prefHeight="0.0" prefWidth="417.0" styleClass="Main">
                <children>
                   <RadioButton mnemonicParsing="false" toggleGroup="$toggleChoice" />
-                  <TextField />
+                  <TextField prefHeight="0.0" prefWidth="252.0" />
                </children>
             </HBox>
          </children>
       </VBox>
-      <Button mnemonicParsing="false" onAction="#addChoice" styleClass="Button" text="Thêm lựa chọn" />
-      <Button mnemonicParsing="false" onAction="#addQuestion" styleClass="Button" text="Thêm câu hỏi" />
-      <TextField fx:id="txtSearch" promptText="Tìm câu hỏi" />
-      <TableView fx:id="tbQuestions" prefHeight="200.0" prefWidth="200.0" />
+      <Button mnemonicParsing="false" onAction="#addChoice" prefHeight="21.0" styleClass="Button" text="Thêm lựa chọn" />
+      <Button mnemonicParsing="false" onAction="#addQuestion" prefHeight="16.0" style="-fx-background-color: red;" styleClass="Button" text="Thêm câu hỏi" />
+      <HBox prefHeight="14.0" prefWidth="438.0" styleClass="Main">
+         <children>
+            <TextField fx:id="txtSearch" promptText="Tìm câu hỏi" />
+            <ComboBox fx:id="cbSearchCates" prefWidth="150.0" />
+            <ComboBox fx:id="cbSearchLevels" prefWidth="150.0" />
+         </children>
+      </HBox>
+      <TableView fx:id="tbQuestions" prefHeight="202.0" prefWidth="438.0" />
    </children>
 </VBox>

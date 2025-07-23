@@ -27,6 +27,13 @@ public class Question {
         this.hint = b.hint;
         this.image = b.image;
         this.category = b.category;
+        this.level = b.level;
+        this.choices = b.choices;
+    }
+
+    @Override
+    public String toString() {
+        return this.content;
     }
 
     public static class Builder {
@@ -65,6 +72,11 @@ public class Question {
 
         public Builder addChoice(Choice c) {
             this.choices.add(c);
+            return this;
+        }
+
+        public Builder addAllChoice(List<Choice> choices) {
+            this.choices.addAll(choices);
             return this;
         }
 

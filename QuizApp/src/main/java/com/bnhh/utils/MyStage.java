@@ -41,6 +41,7 @@ public class MyStage {
 
             
             ThemeManager.applyTheme(scene);
+            
             this.stage.setScene(scene);
             this.stage.show();
         }

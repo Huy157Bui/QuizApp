@@ -57,7 +57,7 @@ public class PrimaryController implements Initializable {
     
     public void handleQuestManagement(ActionEvent event) throws IOException{
         
-        MyStage.getInstance().showStage("question.fxml");
+        MyStage.getInstance().showStage("questions.fxml");
                 
                 
 //        Scene scene = new Scene(new FXMLLoader(App.class.getResource("questions.fxml")).load());
@@ -67,9 +67,18 @@ public class PrimaryController implements Initializable {
 //        stage.setTitle("Quiz App");
 //        stage.show();
     }
-    public void handlePractice(ActionEvent event){
-        MyAlert.getInstance().showMsg("Coming soon....");
+    public void handlePractice(ActionEvent event) throws IOException{
+         MyStage.getInstance().showStage("practice.fxml");
     }
-
+    public void handleExam(ActionEvent event) {
+        MyAlert.getInstance().showMsg("Comming soon...");
+    }
     
+    public void handleRegister(ActionEvent event) {
+        MyAlert.getInstance().showMsg("Comming soon...");
+    }
+    
+    public void handleLogin(ActionEvent event) {
+        MyAlert.getInstance().showMsg("Comming soon...");
+    }  
 }

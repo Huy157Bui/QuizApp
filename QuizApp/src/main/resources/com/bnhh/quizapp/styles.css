@@ -9,7 +9,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .Main {
     -fx-background-color: lightblue;
     -fx-padding: 10;
-    -fx-alignment: center;
+    -fx-alignment: CENTER;
     -fx-spacing: 10;
 }
 
@@ -22,9 +22,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .Button {
-    -fx-font-size: 16;
-    -fx-pref-width: 200;
     -fx-background-color: darkblue;
     -fx-text-fill: white;
+    -fx-font-size: 16;
+    -fx-pref-width: 200;
     -fx-font-weight: bold;
+}
+
+.Input {
+    -fx-pref-width: 300;
+    -fx-padding: 8;
+}
+
+.Correct {
+    -fx-fill: blue;
+    -fx-font-size: 16;
+}
+
+.Wrong {
+    -fx-fill: red;
+    -fx-font-size: 16;
 }

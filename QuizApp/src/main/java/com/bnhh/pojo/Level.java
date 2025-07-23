@@ -19,6 +19,9 @@ public class Level {
         this.name = name;
         this.note = note;
     }
+    public Level(int id) {
+        this.id = id;
+    }
     @Override
     public String toString() {
         return this.name;

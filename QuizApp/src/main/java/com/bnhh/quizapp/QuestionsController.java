@@ -4,9 +4,12 @@ import com.bnhh.pojo.Category;
 import com.bnhh.pojo.Choice;
 import com.bnhh.pojo.Level;
 import com.bnhh.pojo.Question;
-import com.bnhh.services.CategoryServices;
-import com.bnhh.services.LevelServices;
-import com.bnhh.services.QuestionServices;
+import com.bnhh.services.FlyweightFactory;
+import com.bnhh.services.questions.BaseQuestionServices;
+import com.bnhh.services.questions.CategoryQuestionServicesDecorator;
+import com.bnhh.services.questions.KeywordQuestionServicesDecorator;
+import com.bnhh.services.questions.LevelQuestionServicesDecorator;
+import com.bnhh.utils.Configs;
 import com.bnhh.utils.MyAlert;
 import java.net.URL;
 import java.sql.SQLException;
@@ -40,7 +43,11 @@ public class QuestionsController implements Initializable {
     @FXML
     private ComboBox<Category> cbCates;
     @FXML
+    private ComboBox<Category> cbSearchCates;
+    @FXML
     private ComboBox<Level> cbLevels;
+    @FXML
+    private ComboBox<Level> cbSearchLevels;
     @FXML
     private TableView<Question> tbQuestions;
     @FXML
@@ -50,9 +57,6 @@ public class QuestionsController implements Initializable {
     @FXML
     private ToggleGroup toggleChoice;
 
-    private final static CategoryServices cateService = new CategoryServices();
-    private final static LevelServices levelServices = new LevelServices();
-    private final static QuestionServices questionServices = new QuestionServices();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -81,18 +85,43 @@ public class QuestionsController implements Initializable {
 //            // B4: Đóng kết nối
 //            conn.close();
             // Đưa dữ liệu lên ComboBox
-            this.cbCates.setItems(FXCollections.observableList(cateService.getCates()));
-            this.cbLevels.setItems(FXCollections.observableList(levelServices.getLevels()));
+            
+            
+            this.cbCates.setItems(FXCollections.observableList(FlyweightFactory.getData(Configs.cateService, "categories")));
+            this.cbLevels.setItems(FXCollections.observableList(FlyweightFactory.getData(Configs.levelServices, "levels")));
 
+            
+            this.cbSearchCates.setItems(FXCollections.observableList(FlyweightFactory.getData(Configs.cateService, "categories")));
+            this.cbSearchLevels.setItems(FXCollections.observableList(FlyweightFactory.getData(Configs.levelServices, "levels")));
+            
             this.loadColumns();
             //this.tbQuestions.setItems(FXCollections.observableList(questionServices.getQuestion()));
-            this.loadQuestions(questionServices.getQuestion());
+            this.loadQuestions(Configs.questionServices.list());
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            System.out.println(ex.getMessage());
         }
         this.txtSearch.textProperty().addListener((e) -> {
             try {
-                this.loadQuestions(questionServices.getQuestions(this.txtSearch.getText()));
+                BaseQuestionServices s = new KeywordQuestionServicesDecorator(Configs.questionServices, this.txtSearch.getText());
+                this.loadQuestions(s.list());
+            } catch (SQLException ex) {
+                Logger.getLogger(QuestionsController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+        });
+        this.cbSearchCates.getSelectionModel().selectedItemProperty().addListener(e -> {
+            try {
+                BaseQuestionServices s = new CategoryQuestionServicesDecorator(Configs.questionServices, this.cbSearchCates.getSelectionModel().getSelectedItem());
+                
+                this.loadQuestions(s.list());
+            } catch (SQLException ex) {
+                Logger.getLogger(QuestionsController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+        });
+        this.cbSearchLevels.getSelectionModel().selectedItemProperty().addListener(e -> {
+            try {
+                BaseQuestionServices s = new LevelQuestionServicesDecorator(Configs.questionServices, this.cbSearchLevels.getSelectionModel().getSelectedItem());
+                
+                this.loadQuestions(s.list());
             } catch (SQLException ex) {
                 Logger.getLogger(QuestionsController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
@@ -125,7 +154,7 @@ public class QuestionsController implements Initializable {
                         ((RadioButton) h.getChildren().get(0)).isSelected());
             }
 //            Question q = b.build();
-            questionServices.addQuestion(b.build());
+            Configs.uQServices.addQuestion(b.build());
             MyAlert.getInstance().showMsg("Them cau hoi thanh cong!!!");
 
             // bo sung
@@ -157,7 +186,7 @@ public class QuestionsController implements Initializable {
                 if (t.isPresent() && t.get().equals(ButtonType.OK)) {
                     Question q = (Question) cell.getTableRow().getItem();
                     try {
-                        questionServices.deleteQuestion(q.getId());
+                        Configs.uQServices.deleteQuestion(q.getId());
 
                         this.tbQuestions.getItems().remove(q);
                         MyAlert.getInstance().showMsg("Xoa thanh cong");

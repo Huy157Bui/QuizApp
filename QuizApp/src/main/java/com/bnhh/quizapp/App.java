@@ -18,7 +18,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("questions"));
+        scene = new Scene(loadFXML("exam"));
         stage.setScene(scene);
         stage.setTitle("Quiz App");
         stage.show();
@@ -37,6 +37,7 @@ public class App extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+
         return fxmlLoader.load();
     }
 
