@@ -4,15 +4,7 @@
  */
 package com.bnhh.services.questions;
 
-import com.bnhh.pojo.Choice;
-import com.bnhh.pojo.Question;
-import java.sql.Connection;
-import com.bnhh.utils.JbdcConnector;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+
 import java.util.List;
 
 /**
@@ -78,8 +70,4 @@ public class QuestionServices extends BaseQuestionServices{
 //        }
 //        return questions;
 //    }
-    
-
-    
-    
 }
